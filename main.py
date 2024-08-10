@@ -2,7 +2,7 @@ import torch.nn as nn
 import torch 
 import os
 
-dir = "/home/cmk2000/Documents/Years 3/Python codes/Codes/LLMs/LoRa"
+dir = ...
 
 from model import DigitClassification, LoRaParametrisation, LoRa_model, enable_disable_lora, count_parameters
 from datasets import Datasets

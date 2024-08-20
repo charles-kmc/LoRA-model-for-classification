@@ -2,7 +2,7 @@ import torch.nn as nn
 import torch 
 import os
 
-dir = ...
+dir = os.path.dirname(os.path.abspath(__file__))
 
 from model import DigitClassification, LoRaParametrisation, LoRa_model, enable_disable_lora, count_parameters
 from datasets import Datasets
@@ -60,14 +60,14 @@ L_model = copy.deepcopy(model)
 print(f"Total trainable parameters of the model: {count_parameters(L_model)}") #type: ignore
 
 # specific dataset to fine tuning the model
-dataset_9 = Datasets(dataset_name = "MNIST", exclude_tgs=9)
-train_loader_9 = dataset_9.get_dataloader(batch_size = 16)
+dataset_5 = Datasets(dataset_name = "MNIST", exclude_tgs=5)
+train_loader_5 = dataset_5.get_dataloader(batch_size = 16)
 
 # LoRa model
 L_model = LoRa_model(L_model, rank = 2, device = device)
 
 # Trainer for LoRa model
-trainer_LoRa = Trainer(L_model, train_loader_9, test_loader, lr = lr, device = device, path_checkpoint=dic_pth["checkpoints"], save_ckeckpoint = save_ckeckpoint)
+trainer_LoRa = Trainer(L_model, train_loader_5, test_loader, lr = lr, device = device, path_checkpoint=dic_pth["checkpoints"], save_ckeckpoint = save_ckeckpoint)
 
 # training
 trainer_LoRa.training_loop(epochs = 1, lora = True)

@@ -560,58 +560,37 @@ img-comparison-slider img{
   <div class="hero-body">
     <div class="container">
       <h2 class="title is-3">Training Objective</h2>
-      <div id="results-carousel" class="carousel results-carousel">
-          <p>
-            To train our network to sample from the conditional distribution 
-            \( p(\mathbf{x}_0 \mid \mathbf{y}, \mathbf{x}_t) \), we use a combination of 
-            reconstruction and adversarial losses. This hybrid objective has been shown 
-            to significantly improve sample quality compared to relying on reconstruction 
-            loss alone.
-          </p>
+        <p>
+          To train our network to sample from the conditional distribution 
+          \( p(\mathbf{x}_0 \mid \mathbf{y}, \mathbf{x}_t) \), we use a combination of 
+          reconstruction and adversarial losses. This hybrid objective has been shown 
+          to significantly improve sample quality compared to relying on reconstruction 
+          loss alone.
+        <br>
 
-          <p>
-            More precisely, the generator objective is defined as:
-          </p>
-
-          <p>
-            \[
-            \mathcal{L}^G(\Delta_{\theta}, \psi)
-            = \mathcal{L}_{Adv}(\Delta_{\theta}, \psi, \phi)
-            + \omega_{\ell_2}\,\mathcal{L}_{\ell_2}(\Delta_{\theta}, \psi)
-            + \omega_{PS}\,\mathcal{L}_{PS}(\Delta_{\theta}, \psi).
-            \]
-          </p>
-
-          <p>
-            The discriminator objective is given by:
-          </p>
-
-          <p>
-            \[
-            \mathcal{L}^D(\phi)
-            = \mathcal{L}_{Adv}(\Delta_{\theta}, \psi, \phi)
-            + \omega_{GP}\,\mathcal{L}_{GP}(\phi),
-            \]
-          </p>
-
-          <p>
-            where, \(\omega_{\ell_2}\), \(\omega_{PS}\), and \(\omega_{GP} > 0\) are 
-            regularization coefficients. The loss \(\mathcal{L}^G\) is used to optimize 
-            the conditional diffusion model, while \(\mathcal{L}^D\) is used to train the 
-            discriminator. For additional details, we refer the reader to the original 
-            paper.
-          </p>
-        <!-- <div class="item item-video2">
-          <video poster="" id="video2" controls muted loop height="100%" preload="metadata">
-            <source src="static/videos/carousel2.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video3">
-          <video poster="" id="video3" controls muted loop height="100%" preload="metadata">
-            <source src="static/videos/carousel3.mp4" type="video/mp4">
-          </video>
-        </div> -->
-      </div>
+          More precisely, the generator objective is defined as:
+        <br>
+          \[
+          \mathcal{L}^G(\Delta_{\theta}, \psi)
+          = \mathcal{L}_{Adv}(\Delta_{\theta}, \psi, \phi)
+          + \omega_{\ell_2}\,\mathcal{L}_{\ell_2}(\Delta_{\theta}, \psi)
+          + \omega_{PS}\,\mathcal{L}_{PS}(\Delta_{\theta}, \psi).
+          \]
+        <br>
+          The discriminator objective is given by:
+        <br>
+          \[
+          \mathcal{L}^D(\phi)
+          = \mathcal{L}_{Adv}(\Delta_{\theta}, \psi, \phi)
+          + \omega_{GP}\,\mathcal{L}_{GP}(\phi),
+          \]
+        <br>
+          where, \(\omega_{\ell_2}\), \(\omega_{PS}\), and \(\omega_{GP} > 0\) are 
+          regularization coefficients. The loss \(\mathcal{L}^G\) is used to optimize 
+          the conditional diffusion model, while \(\mathcal{L}^D\) is used to train the 
+          discriminator. For additional details, we refer the reader to the original 
+          paper.
+        </p>
     </div>
   </div>
 </section>

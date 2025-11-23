@@ -585,20 +585,50 @@ img-comparison-slider img{
 <section class="hero is-small">
   <div class="hero-body">
     <div class="container">
-      <h2 class="title is-3">Another Carousel</h2>
+      <h2 class="title is-3">Training Objective</h2>
       <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-video1">
+          <p>
+            To train our network to sample from the conditional distribution 
+            \( p(\mathbf{x}_0 \mid \mathbf{y}, \mathbf{x}_t) \), we use a combination of 
+            reconstruction and adversarial losses. This hybrid objective has been shown 
+            to significantly improve sample quality compared to relying on reconstruction 
+            loss alone.
+          </p>
+
+          <p>
+            More precisely, the generator objective is defined as:
+          </p>
+
+          <p>
+            \[
+            \mathcal{L}^G(\Delta_{\theta}, \psi)
+            = \mathcal{L}_{Adv}(\Delta_{\theta}, \psi, \phi)
+            + \omega_{\ell_2}\,\mathcal{L}_{\ell_2}(\Delta_{\theta}, \psi)
+            + \omega_{PS}\,\mathcal{L}_{PS}(\Delta_{\theta}, \psi).
+            \]
+          </p>
+
+          <p>
+            The discriminator objective is given by:
+          </p>
+
+          <p>
+            \[
+            \mathcal{L}^D(\phi)
+            = \mathcal{L}_{Adv}(\Delta_{\theta}, \psi, \phi)
+            + \omega_{GP}\,\mathcal{L}_{GP}(\phi),
+            \]
+          </p>
+
+          <p>
+            where, \(\omega_{\ell_2}\), \(\omega_{PS}\), and \(\omega_{GP} > 0\) are 
+            regularization coefficients. The loss \(\mathcal{L}^G\) is used to optimize 
+            the conditional diffusion model, while \(\mathcal{L}^D\) is used to train the 
+            discriminator. For additional details, we refer the reader to the original 
+            paper.
+          </p>
+          <div class="item item-video1">
           <!-- TODO: Add poster image for better preview -->
-          <!-- <video poster="" id="video1" controls muted loop height="100%" preload="metadata">
-            <source src="static/images/model.png" type="video/mp4">
-            <h2>  
-              Diagram of the proposed conditional sampling architecture, $L_{\vartheta}(\vy,\vx_t,t)$ derived by deep unfolding $K$ LATINO
-              iterations (Spagnoletti et al. 2025). The prior is introduced via a pre-trained unconditional diffusion model $G_{\theta}$
-              with LoRA adaptation $\Delta_{\theta}$, while the observation model, measurement $\vy$ and noisy state $\vx_t$ are involved
-              via $-\log p(\vy,\vx_t\mid x=\vx_0)$. The first module is initialized by an estimator $f_{\psi}$ such as RAM (Terris et al., 2025),
-              or by setting $f_{\psi}(\vx_t,\vy)=A^\dagger \vy$.
-            </h2>
-          </video> -->
           <figure style="height: 100%; text-align: center;">
             <img src="static/images/model.png" alt="Model diagram" style="max-width: 100%; height: auto;">
             <figcaption>

@@ -521,11 +521,8 @@ img-comparison-slider img{
     <div class="container">
       <!-- Paper video. -->
       <h2 class="title is-3">UD<sup>2</sup>M Model</h2>
-      gdgegrf tg sfbibsidvasifbwi edbissgfwes sdksiws eydfqe dgf qaegdufqeahdi ud wsedfoo.
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          
-          <figure class="has-text-centered">
+      This video provides an overview of the UD<sup>2</sup>M model architecture and its key components. We discuss the motivation behind the model, its design principles, and the expected outcomes of our research. The video also includes visualizations of the model in action, showcasing its capabilities in various scenarios.
+      <figure class="has-text-centered">
             <img
               src="static/images/model.png"
               alt="UD2M solver step"
@@ -536,6 +533,34 @@ img-comparison-slider img{
             iterations (Spagnoletti et al. 2025). The prior is introduced via a pre-trained unconditional diffusion model $G_{\theta}$ 
             with LoRA adaptation $\Delta_{\theta}$, while the observation model, measurement $\vy$ and noisy state $\vx_t$ are involved 
             via $-\log p(\vy,\vx_t\mid x=\vx_0)$. The first module is initialized by an estimator $f_{\psi}$ such as RAM (Terris et al., 2025), 
+            or by setting $f_{\psi}(\vx_t,\vy)=A^\dagger \vy$. The unfolded network is finetuned and distilled to sample from $p(\vx_0\mid\vy,\vx_t)$.
+            </figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+
+<!-- Image carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <!-- TODO: Replace with your research result images -->
+
+        <figure class="has-text-centered">
+            <img
+              src="static/images/model.png"
+              alt="UD2M solver step"
+              class="wide-banner"
+            >
+          <figcaption class="has-text-grey is-size-6 mt-2">
+            Diagram of the proposed conditional sampling architecture, $L_{\vartheta}(\vy,\vx_t,t)$ derived by deep unfolding $K$ LATINO
+            iterations (Spagnoletti et al. 2025). The prior is introduced via a pre-trained unconditional diffusion model $G_{\theta}$
+            with LoRA adaptation $\Delta_{\theta}$, while the observation model, measurement $\vy$ and noisy state $\vx_t$ are involved
+            via $-\log p(\vy,\vx_t\mid x=\vx_0)$. The first module is initialized by an estimator $f_{\psi}$ such as RAM (Terris et al., 2025),
             or by setting $f_{\psi}(\vx_t,\vy)=A^\dagger \vy$. The unfolded network is finetuned and distilled to sample from $p(\vx_0\mid\vy,\vx_t)$.
             </figcaption>
         </figure>

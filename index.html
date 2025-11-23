@@ -512,9 +512,6 @@ img-comparison-slider img{
 </section>
 <!-- End image carousel -->
 
-
-
-
 <!-- Youtube video -->
 <section class="hero is-small is-light">
   <div class="hero-body">
@@ -543,37 +540,48 @@ img-comparison-slider img{
 </section>
 <!-- End paper abstract -->
 
+ <!-- UD2M algorithm ------------------------------------------------------->
+<figure class="my-5">
+  <figcaption class="has-text-weight-bold has-text-centered mb-2" style="width: 100%; height: auto;">
+    Algorithm:&nbsp;UD<sup>2</sup>M
+  </figcaption>
 
-<!-- Image carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-        <!-- TODO: Replace with your research result images -->
+  <ol class="algo-code">
+    <li><strong>Given</strong>  the observation $y$, the time-grid $0=t_0 < t_1 < \cdots < t_N=T$
+     </li>
 
-        <figure class="has-text-centered">
-            <img
-              src="static/images/model.png"
-              alt="UD2M solver step"
-              class="wide-banner"
-            >
-          <figcaption class="has-text-grey is-size-6 mt-2">
-            Diagram of the proposed conditional sampling architecture, $L_{\vartheta}(\vy,\vx_t,t)$ derived by deep unfolding $K$ LATINO
-            iterations (Spagnoletti et al. 2025). The prior is introduced via a pre-trained unconditional diffusion model $G_{\theta}$
-            with LoRA adaptation $\Delta_{\theta}$, while the observation model, measurement $\vy$ and noisy state $\vx_t$ are involved
-            via $-\log p(\vy,\vx_t\mid x=\vx_0)$. The first module is initialized by an estimator $f_{\psi}$ such as RAM (Terris et al., 2025),
-            or by setting $f_{\psi}(\vx_t,\vy)=A^\dagger \vy$. The unfolded network is finetuned and distilled to sample from $p(\vx_0\mid\vy,\vx_t)$.
-            </figcaption>
-        </figure>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- End youtube video -->
+    <li>
+        Sample $\vx_{t_N} \sim \mathcal{N}(0, \mathbb{I})$
+        <span style="display:inline-block; float:right; color:#85508a;">
+          <i>
+            ▷ Initialize reversed diffusion
+          </i>
+        </span>
+    </li>
 
+    <li><strong>For</strong> $n = N,\ldots,1$</li>
+    <li class="indent1">
+        Set $\hat{\vx}_{0} \;\gets\;
+        \tilde{x}^{\Delta_{\theta}}_{t_n}$ using $\boldsymbol{L}_{\vartheta}$ (see Figure ...)
+        <span style="display:inline-block; float:right; color:#85508a;">
+          <i>▷ Unfolded sample targeting $p_0(\vx_0\mid\vx_t, \vy)$</i>
+        </span>
+    </li>
+
+    <li class="indent1">
+        Sample $\vx_{t_n}\sim p_{t_{n-1}}(\vx_{t_{n-1}}\mid\hat{\vx}_0, \vx_{t_n})$ 
+        <span style="display:inline-block; float:right; color:#85508a;">
+          <i>▷ Reverse DDIM step</i>
+        </span>
+    <em><!-- Encode step --></em>
+    </li>
+
+    <li><strong>Return</strong> $\vx_{t_0}$</li>
+  </ol>
+</figure>
 
 <!-- Video carousel -->
+
 <section class="hero is-small">
   <div class="hero-body">
     <div class="container">

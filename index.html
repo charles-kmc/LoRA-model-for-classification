@@ -580,7 +580,7 @@ img-comparison-slider img{
   </ol>
 </figure>
 
-<!-- Video carousel -->
+<!-- Training objective -->
 
 <section class="hero is-small">
   <div class="hero-body">
@@ -627,24 +627,7 @@ img-comparison-slider img{
             discriminator. For additional details, we refer the reader to the original 
             paper.
           </p>
-          <div class="item item-video1">
-          <!-- TODO: Add poster image for better preview -->
-          <figure style="height: 100%; text-align: center;">
-            <img src="static/images/model.png" alt="Model diagram" style="max-width: 100%; height: auto;">
-            <figcaption>
-              <h2>
-                Diagram of the proposed conditional sampling architecture,
-                $L_{\vartheta}(\vy,\vx_t,t)$ derived by deep unfolding $K$ LATINO
-                iterations (Spagnoletti et al. 2025). The prior is introduced via a
-                pre-trained unconditional diffusion model $G_{\theta}$ with LoRA
-                adaptation $\Delta_{\theta}$, while the observation model, measurement
-                $\vy$ and noisy state $\vx_t$ are involved via $-\log p(\vy,\vx_t\mid x=\vx_0)$.
-                The first module is initialized by an estimator $f_{\psi}$ such as RAM
-                (Terris et al., 2025), or by setting $f_{\psi}(\vx_t,\vy)=A^\dagger \vy$.
-              </h2>
-            </figcaption>
-          </figure>
-        </div>
+          
         <div class="item item-video2">
           <!-- TODO: Add poster image for better preview -->
           <video poster="" id="video2" controls muted loop height="100%" preload="metadata">
@@ -665,7 +648,72 @@ img-comparison-slider img{
 </section>
 <!-- End video carousel -->
 
+<!-- Results -->
+<section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container">
+      <!-- Paper video. -->
+      <h2 class="title is-3">Results</h2>
+      <!-- Paper Imagenet figures. -->
+        <figure class="has-text-centered" style="max-width: 1800px; margin-inline: auto;">
+          <img
+            src="static/images/ud2m/figure_gauss_imagenet.png"
+            alt="Gaussian deblurring and super-resolution results on ImageNet"
+            class="wide-banner"
+            style="width: 100%; height: auto;"
+          >
+          <figcaption class="has-text-grey is-size-6 mt-2">
+            Comparison of posterior samples for the task Gaussian deblurring with noise level $\sigma = 0.01$ on
+            ImageNet 256.
+          </figcaption>
+        </figure>
+        
+        <!-- Paper Imagenet Summaries. -->
+        <figure class="has-text-centered" style="max-width: 1800px; margin-inline: auto;">
+          <img
+            src="static/tables/imagenet_results.png"
+            alt="Gaussian deblurring and super-resolution results on ImageNet"
+            class="wide-banner"
+            style="width: 100%; height: auto;"
+          >
+          <figcaption class="has-text-grey is-size-6 mt-2">
+            Results for Gaussian deblurring and super-resolution tasks on ImageNet dataset with noise level $0.01$. The table summarises the average PSNR [dB] (↑), LPIPS (↓) and
+            FID (↓) scores for each methods. Our UD<sup>2</sup>M model is compared to recent state-of-the-art methods.
+          </figcaption>
+        </figure>
+        
+        <!-- Paper Imagenet figures.
+        ---------------------- -->
+        <figure class="has-text-centered" style="max-width: 1800px; margin-inline: auto;">
+          <img
+            src="static/images/ud2m/figure_lsun_bedroom.png"
+            alt="Gaussian deblurring and super-resolution results on LSUN Bedroom"
+            class="wide-banner"
+            style="width: 100%; height: auto;"
+          >
+          <figcaption class="has-text-grey is-size-6 mt-2">
+            Comparison of posterior samples for the task Gaussian deblurring with noise level $\sigma = 0.025$ on
+            LSUN Bedroom.
+          </figcaption>
+        </figure>
+        <!-- Paper LSUN Bedroom Summaries. -->
+        <figure class="has-text-centered" style="max-width: 1800px; margin-inline: auto;">
+          <img
+            src="static/tables/lsun_bedroom_results.png"
+      alt="Inpainting, Gaussian deblurring and super-resolution results on LSUN Bedroom"
+            class="wide-banner"
+            style="width: 100%; height: auto;"
+          >
+          <figcaption class="has-text-grey is-size-6 mt-2">
+            Results for inpainting, Gaussian deblurring and super-resolution tasks on LSUN Bedroom dataset with noise level $0.025$. The table summarises the average PSNR [dB] (↑), LPIPS (↓) and
+            FID (↓) scores for each methods. Our UD<sup>2</sup>M model is compared to recent state-of-the-art methods.
+          </figcaption>
+        </figure>
 
+      </div>
+    </div>
+  </div>
+</section>
 
 
 

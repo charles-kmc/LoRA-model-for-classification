@@ -1,2 +1,5 @@
 # Google App Engine generated folder
 appengine-generated/
+index.html
+# Python cache files
+__pycache__/
